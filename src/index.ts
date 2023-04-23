@@ -1,9 +1,9 @@
 import { startStandaloneServer } from '@apollo/server/standalone';
 
 import graphqlServer from './util/graphql';
-import mongoConnect from './util/database';
+import db from './util/database';
 
-mongoConnect((client) => {
+db.mongoConnect(() => {
   startStandaloneServer(graphqlServer, {
     listen: { port: 4000 },
   })

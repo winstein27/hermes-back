@@ -1,14 +1,24 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, Db } from 'mongodb';
 
 import config from './config';
 
-const mongoConnect = (callback: (client: MongoClient) => void) => {
+let db: Db;
+
+const mongoConnect = (callback: () => void) => {
   MongoClient.connect(config.MONGODB_CONNECTION_STRING)
     .then((client) => {
       console.log('Connected to MongoDB.');
-      callback(client);
+      db = client.db();
+      callback();
     })
     .catch((err) => console.log(err));
 };
 
-export default mongoConnect;
+const getDb = () => {
+  if (db) {
+    return db;
+  }
+  throw 'No database found.';
+};
+
+export default { mongoConnect, getDb };
