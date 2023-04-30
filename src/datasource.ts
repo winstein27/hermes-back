@@ -7,6 +7,7 @@ export default [
     id: '1',
     lastName: 'Lannister',
     password: 'my-very-secured-password',
+    companyName: 'Starbucks',
   },
   {
     email: 'lmormont@got.com',
@@ -14,5 +15,6 @@ export default [
     id: '2',
     lastName: 'Mormont',
     password: 'my-very-secured-password',
+    companyName: 'Walmart',
   },
 ];

@@ -7,8 +7,14 @@ import {
 import datasource from './datasource';
 
 const createUser: MutationResolvers['registerUser'] = (parent, args) => {
-  const { email, firstName, lastName, password }: CreateUserInput =
-    args.input || { email: '', firstName: '', lastName: '', password: '' };
+  const { email, firstName, lastName, password, companyName }: CreateUserInput =
+    args.input || {
+      email: '',
+      firstName: '',
+      lastName: '',
+      password: '',
+      companyName: '',
+    };
 
   const user = {
     email,
@@ -16,6 +22,7 @@ const createUser: MutationResolvers['registerUser'] = (parent, args) => {
     id: `${datasource.length + 1}`,
     lastName,
     password,
+    companyName,
   };
 
   datasource.push(user);
