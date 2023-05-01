@@ -22,7 +22,7 @@ Users should be able to:
 
 - Create an account using email and password
 - Login with the created account
-- Logout from my account
+- Logout from account
 
 ### Links
 
